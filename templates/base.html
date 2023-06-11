@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {% load seo %}
+        {% get_metadata %}
+        <meta charset="UTF-8">
+        <meta name="description" property="og:description" content="SEO Django">
+        <meta name="keywords" content="seo, python, django, web development">
+        <meta name="author" content="PyLounge">
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        {% load compress %}
+        {% compress css %}
+        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
+        {% endcompress %}
+    </head>
+    <body>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script defer src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script defer src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
